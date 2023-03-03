@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="zxx">
+   <!-- Mirrored from templates.hibootstrap.com/techex/default/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 16 Nov 2022 09:51:48 GMT -->
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/css/animate.min.css">
+      <link rel="stylesheet" href="assets/fonts/flaticon.css">
+      <link rel="stylesheet" href="assets/css/boxicons.min.css">
+      <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="assets/css/magnific-popup.css">
+      <link rel="stylesheet" href="assets/css/nice-select.min.css">
+      <link rel="stylesheet" href="assets/css/meanmenu.css">
+      <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="assets/css/responsive.css">
+      <link rel="stylesheet" href="assets/css/theme-dark.css">
+      <link rel="icon" type="image/png" href="assets/images/lafav.png">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css">
+      <title>LA Enterprises</title>
+
+      <script>
+         // for password hide and show option
+
+let allShowHidePassword = document.querySelectorAll('.password-showHide')
+
+allShowHidePassword.forEach(item => {
+    item.addEventListener('click', ()=> {
+        item.classList.toggle('hide')
+        if(item.closest('.form-input').querySelector('input').type === 'password') {
+            item.closest('.form-input').querySelector('input').type = 'text'
+        }else {
+            item.closest('.form-input').querySelector('input').type = 'password'
+        }
+    })
+})
+
+
+// for form steps
+const allStepBtn = document.querySelectorAll('[tab-target]')
+const allStepItem = document.querySelectorAll('.step-item')
+const allTabs = document.querySelectorAll('.step-tab')
+allStepBtn.forEach(item => {
+    item.addEventListener('click', ()=> {
+        let currentTabId = item.getAttribute('tab-target')
+        let currentTab = document.getElementById(`${currentTabId}`)
+
+        allStepItem.forEach(item => {
+            item.classList.remove('active')
+        })
+     
+        allTabs.forEach((tab,i) => {
+            if(tab.id === currentTab.id) {
+                for(let l = 0; i >= 0; i--) {
+                    allStepItem[i].classList.add('active')
+                }
+                
+            }
+        })
+
+        allTabs.forEach(item => {
+            item.classList.remove('active')
+        })
+
+        currentTab.classList.add('active')
+        item.classList.add('active')
+    })
+})
+       
+   </script>
+
+      <style>
+    .form-title {
+    color: #00c5b2;
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 15px 0px 30px 0px;
+}
+
+.form-title-sc {
+    color: #2c3638;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 15px 0px 30px 0px;
+}
+
+.form {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    padding: 15px 30px;
+    background: white;
+    box-shadow: 0px 0px 3px rgb(208 208 208 / 30%);
+    border-radius: 4px;
+}
+
+.form-controll {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-controll:not(:last-of-type) {
+    margin-bottom: 33px;
+}
+
+.form-input {
+    position: relative;
+    width:100%;
+}
+
+.form-input input,
+.form-input textarea {
+    position: relative;
+    width:100%;
+    padding: 8px 0px;
+    outline: 1px solid transparent;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #c2c2c2;
+    background: transparent !important;
+    z-index: 9;
+    color: #2c3638;
+}
+
+.form-controll label  {
+    position: absolute;
+    left: 0px;
+    bottom: 10px;
+    color: #c2c2c2;
+    font-size: 14px;
+    z-index: 1;
+    transition: all 0.1s ease-in;
+}
+
+input:focus + label,
+input:valid + label,
+textarea:focus + label,
+textarea:valid + label {
+    bottom: 100%;
+    z-index: 9;
+    transition: all 0.1s ease-in-out;
+}
+
+textarea {
+    resize: none;
+    min-height: 50px;
+}
+
+input:focus {
+    border-bottom: 1px solid #00c5b2;
+}
+
+
+
+.form-submit {
+    position: relative;
+    width:100%;
+    margin: 14px 0px;
+}
+
+.form-submit .form-btn {
+    width:100%;
+    padding: 8px;
+    background: #2082d8;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.5px;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.form-submit .form-btn:hover {
+    background: #00c5b2;
+    transition: all 0.2s ease-out;
+}
+
+.grid-2 {
+    position: relative;
+    width:100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+}
+
+
+/*Steps*/
+
+.step-tab-items {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+.step-tab-items .step-item {
+    position: relative;
+    list-style: none;
+    width: 25px;
+    height: 25px;
+    background: #e2e2e2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.step-tab-items .step-item.active {
+    background: #00c5b2;
+}
+
+
+.step-tab-items .step-item:not(:last-child) {
+    margin-right: 45px;
+}
+
+.step-tab-items .step-item:not(:last-of-type)::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: rgb(241, 239, 239);
+    left: calc(100% + 10px);
+}
+
+.step-tab-items .step-item.active::before {
+    background: #00c5b2;
+}
+
+.step-tabs .step-tab {
+    display: none;
+}
+
+.step-tabs .step-tab.active {
+    display: block;
+}
+.navbar-brand {
+    padding-top: 0 !important; 
+   padding-bottom: 0 !important; 
+   
+}
+.navbar {
+  padding-top: 0 !important; 
+  padding-bottom: 0 !important;
+}
+      </style>
+
+
+   </head>
+   <body>
+      <!-- <div class="preloader">
+         <div class="d-table">
+            <div class="d-table-cell">
+               <div class="spinner"></div>
+            </div>
+         </div>
+      </div> -->
+
+
+<!-- Pop up Form Start  -->
+
+
+<!--Script-->
+<script type="text/javascript">
+
+
+
+document.querySelector("#close").addEventListener("click", function(){
+document.querySelector(".popup").style.display = "none";
+});
+</script>
+<style>
+   @media only screen and (max-width: 600px) {
+      .popup {
+         width: 420px !important;
+  }
+}
+  .popup{
+    background: linear-gradient(90deg, rgb(34 139 231) 0%, rgb(1 0 10 / 82%) 88%);
+    width: 420px;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    font-family: "Poppins",sans-serif;
+    display: none; 
+    text-align: center;
+    z-index: 9999;
+}
+.popup button{
+    display: block;
+    margin:  0 0 20px auto;
+    background-color: transparent;
+    font-size: 30px;
+    color: #ffffff;
+    background: #03549a;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.popup h2{
+  margin-top: -20px;
+}
+.popup p{
+    font-size: 14px;
+    text-align: justify;
+    margin: 20px 0;
+    line-height: 25px;
+}
+
+</style>
+<!-- Pop up Form End  -->
+
+
+
+
+
+
+
+
+      <div class="navbar-area">
+         <div class="mobile-nav">
+            <a href="index.html" class="logo">
+               
+               <img src="assets/images/lafav.png" class="logo-one" alt="Logo" style="width: 20%; height:auto" >
+               <img src="assets/images/lafav.png" class="logo-two" alt="Logo" style="width: 20%; height:auto" >
+               <marquee behavior="2px" direction="right"> <h1 style="color: #9B7E44;">LA Enterprises</h1></marquee>
+            </a>
+         </div>
+         <div class="main-nav ">
+            <div class="container-fluid">
+               <div class="container-max">
+                  <nav class="navbar navbar-expand-md navbar-light ">
+                     <a class="navbar-brand d-flex align-items-center" href="index.html">
+                     <img src="assets/images/lafav.png" class="logo-one" alt="Logo" style="width: 9%; height:auto" >
+                     <img src="assets/images/lafav.png" class="logo-two" alt="Logo" style="width: 9%; height:auto" >
+
+                       <marquee behavior="2px" direction="right"> <h1 style="color: #9B7E44;">LA Enterprises</h1></marquee>
+
+                     </a>
+
+                  </nav>
+               </div>
+            </div>
+         </div>
+         <!-- <div class="side-nav-responsive">
+            <div class="container-max">
+               <div class="dot-menu">
+                  <div class="circle-inner">
+                     <div class="in-circle circle-one"></div>
+                     <div class="in-circle circle-two"></div>
+                     <div class="in-circle circle-three"></div>
+                  </div>
+               </div>
+               <div class="container">
+                  <div class="side-nav-inner">
+                     <div class="side-nav justify-content-center align-items-center">
+                        <div class="side-nav-item nav-side">
+                           <div class="search-box">
+                              <i class='bx bx-search'></i>
+                           </div>
+                           <div class="get-btn">
+                              <a href="index.html" class="default-btn btn-bg-two border-radius-50">Get A Quote <i class='bx bx-chevron-right'></i></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div> -->
+      </div>
+      <div class="search-overlay">
+         <div class="d-table">
+            <div class="d-table-cell">
+               <div class="search-layer"></div>
+               <div class="search-layer"></div>
+               <div class="search-layer"></div>
+               <div class="search-close">
+                  <span class="search-close-line"></span>
+                  <span class="search-close-line"></span>
+               </div>
+               <div class="search-form">
+                  <form>
+                     <input type="text" class="input-search" placeholder="Search here...">
+                     <button type="submit"><i class='bx bx-search'></i></button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- <div class="banner-area">
+         <div class="container-fluid">
+            <div class="container-max">
+               <div class="banner-item-content banner-item-ptb">
+                  <h1>We Provide Best IT Services for Your Need</h1>
+                  <p>
+                     Aenean Sollicitudin, Lorem quis Bibendum auctor, nisi elit consequat ipsum,
+                     nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet
+                  </p>
+                  <div class="banner-btn">
+                     <a href="about.html" class="default-btn btn-bg-two border-radius-50">Learn More <i class='bx bx-chevron-right'></i></a>
+                     <a href="index.html" class="default-btn btn-bg-one border-radius-50 ml-20">Get A Quote <i class='bx bx-chevron-right'></i></a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div> -->
+      <div class="banner-slider-area">
+         <div class="banner-slider owl-carousel owl-theme">
+         <div class="banner-item item-bg1">
+         <div class="d-table">
+         <div class="d-table-cell">
+         <div class="container">
+         <div class="banner-item-content">
+         <!-- <span>High Quality Services</span> -->
+         <h1>Excellent IT Services for Your Success</h1>
+         <p>
+            We are equipped with an updated technical knowledge to serve our customers.<br>Our method of application maintains the industry. 
+          </p>
+         <div class="banner-btn">
+         <!-- <a href="index.html" class="default-btn btn-bg-two border-radius-50">Learn More <i class='bx bx-chevron-right'></i></a>
+         <a href="index.html" class="default-btn btn-bg-one border-radius-50 ml-20">Get A Quote <i class='bx bx-chevron-right'></i></a> -->
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         <div class="banner-item item-bg2">
+         <div class="d-table">
+         <div class="d-table-cell">
+         <div class="container">
+         <div class="banner-item-content">
+         <!-- <span>High Quality Services</span> -->
+         <h1>We Provide Best IT Services for Your Need</h1>
+         <p>
+            We are equipped with an updated technical knowledge to serve our customers.<br>Our method of application maintains the industry. 
+         </p>
+         <div class="banner-btn">
+         <!-- <a href="index.html" class="default-btn btn-bg-two border-radius-50">Learn More <i class='bx bx-chevron-right'></i></a>
+         <a href="index.html" class="default-btn btn-bg-one border-radius-50 ml-20">Get A Quote <i class='bx bx-chevron-right'></i></a> -->
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         <div class="banner-item item-bg3">
+         <div class="d-table">
+         <div class="d-table-cell">
+         <div class="container">
+         <div class="banner-item-content">
+         <!-- <span>High Quality Services</span> -->
+         <h1>Digital IT Service With Excellent Quality</h1>
+         <p>
+            We are equipped with an updated technical knowledge to serve our customers.<br>Our method of application maintains the industry. 
+         </p>
+         <div class="banner-btn">
+         <!-- <a href="index.html" class="default-btn btn-bg-two border-radius-50">Learn More <i class='bx bx-chevron-right'></i></a>
+         <a href="index.html" class="default-btn btn-bg-one border-radius-50 ml-20">Get A Quote <i class='bx bx-chevron-right'></i></a> -->
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+         </div>
+
+<section>
+
+      <div class="about-area ptb-50-100">
+         <div class="container">
+            <center>
+               <div><p class="sub-titles" style="color:#9B7E44;">intro</p></div>
+               <div class="text-center pad-hed section-titlee pre-5"><span style="color:#9B7E44;" class="head-tittle">&nbsp;Why Choose Us&nbsp;</span></div></center>
+            <div class="row justify-content-center align-items-center">
+               
+               <div class="col-lg-6">
+                  <div class="about-content ml-25">
+                     <div class="section-title">
+                        <span style="color:#9B7E44;" class="sp-color2">Company</span>
+                        <h2>We Provide Truly Prominent IT Solutions.</h2>
+                        <p>
+                        </p>
+                     </div>
+                     <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                           <ul class="about-list text-start">
+                              <!-- <li><i class='bx bxs-check-circle'></i>No Packages,For Low Cost</li> -->
+                              <li><i class='bx bxs-check-circle'></i>New Technology Integration</li>
+                              <li><i class='bx bxs-check-circle'></i>Free Customized Maintenance</li>
+                              <li><i class='bx bxs-check-circle'></i>Create Websites Fast and Efficiently</li>
+                           </ul>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                           <ul class="about-list text-start about-list-2">
+                              <li><i class='bx bxs-check-circle'></i>100% Customized Solutions</li>
+                              <!-- <li><i class='bx bxs-check-circle'></i>Our Help Desk 24/7</li> -->
+                              <li><i class='bx bxs-check-circle'></i>High performance web Solution</li>
+                              <li><i class='bx bxs-check-circle'></i>Ecommerce Specialists</li>
+                           </ul>
+                        </div>
+                     </div>
+                     <p class="about-content-text">
+                        We create web solutions that are attractive, simple to use, 
+and drive results for your company. We're strong on corporate 
+branding , web design, mobile application development  and ecommerce.
+                     </p>
+                  </div>
+               </div>
+               <div class="col-lg-6">
+                <div class="about-img">
+                    <img src="assets/images/about/home-img1.jpg" alt="About Images">
+                    <div class="sub-content">
+                    <img src="assets/images/about/about-img4.png" alt="About Images">
+                    <div class="content">
+                    <h3>300+</h3>
+                    <span>Satisfied Clients</span>
+                    </div>
+                    </div>
+                    </div>
+                <!-- <div class="about-play">
+                   <img src="assets/images/about/about-img1.jpg" alt="About Images">
+                   <div class="about-play-content">
+                      <span>Watch Our Intro Video</span>
+                      <h2>Perfect Solution for IT Services!</h2>
+                      <div class="play-on-area">
+                         <a href="https://www.youtube.com/watch?v=tUP5S4YdEJo" class="play-on popup-btn"><i class='bx bx-play'></i></a>
+                      </div>
+                   </div>
+                </div> -->
+             </div>
+            </div>
+         </div>
+      </div>
+
+</section>   
+
+<!-- service section start  -->
+
+      <!-- <section class="services-area-two pt-100 pb-70">
+         <div class="container">
+            
+            <div class="section-title text-center">
+               <span class="sp-color1">Our Services</span>
+               <h2>We Provide a Wide Variety of IT Services</h2>
+            </div>
+            <div class="row pt-45">
+               <div class="col-lg-4 col-md-6">
+                  <div class="services-item">
+                     <a href="index.html">
+                     <img src="assets/images/services/services-img1.jpg" alt="Images">
+                     </a>
+                     <div class="content">
+                        <i class="flaticon-consultant"></i>
+                        <span><a href="index.html">IT Solution</a></span>
+                        <h3><a href="index.html">IT Consulting</a></h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6">
+                  <div class="services-item">
+                     <a href="index.html">
+                     <img src="assets/images/services/services-img2.jpg" alt="Images">
+                     </a>
+                     <div class="content">
+                        <i class="flaticon-consulting"></i>
+                        <span><a href="index.html">Cloud Services</a></span>
+                        <h3><a href="index.html">Cloud Computing</a></h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6">
+                  <div class="services-item">
+                     <a href="index.html">
+                     <img src="assets/images/services/services-img3.jpg" alt="Images">
+                     </a>
+                     <div class="content">
+                        <i class="flaticon-web-development"></i>
+                        <span><a href="index.html">Web Services</a></span>
+                        <h3><a href="index.html">Web Development</a></h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6">
+                  <div class="services-item">
+                     <a href="index.html">
+                     <img src="assets/images/services/services-img4.jpg" alt="Images">
+                     </a>
+                     <div class="content">
+                        <i class="flaticon-stats"></i>
+                        <span><a href="index.html">Web</a></span>
+                        <h3><a href="index.html">Applications</a></h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6">
+                  <div class="services-item">
+                     <a href="index.html">
+                     <img src="assets/images/services/services-img5.jpg" alt="Images">
+                     </a>
+                     <div class="content">
+                        <i class="flaticon-structure"></i>
+                        <span><a href="index.html">Infrastructure</a></span>
+                        <h3><a href="index.html">Softwares</a></h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6">
+                  <div class="services-item">
+                     <a href="index.html">
+                     <img src="assets/images/services/services-img6.jpg" alt="Images">
+                     </a>
+                     <div class="content">
+                        <i class="flaticon-data-analytics"></i>
+                        <span><a href="index.html">Analysis</a></span>
+                        <h3><a href="index.html">Data Analysis</a></h3>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section> -->
+
+       <!-- working process section Start  -->
+
+      <!-- <section class="work-process-area-two pt-100 pb-70">
+         <div class="container">
+           
+   <center>
+   <div><p class="sub-titles">About Service</p></div>
+   <div class="text-center pad-hed section-titlee pre-5"><span class="head-tittle" style="color:#9B7E44;">&nbsp;Working Process&nbsp;</span></div></center>
+
+            <div class="row align-items-center justify-content-center">
+               <div class="col-lg-5">
+                  <div class="work-process-left">
+                     <div class="section-title">
+                        <span class="sp-color1">Our Working Process</span>
+                        <h2>How Our Services Will Help You to Grow Your Business</h2>
+                     </div>
+                     <a href="index.html" class="default-btn btn-bg-two border-radius-50 text-center">Contact Us</a>
+                  </div>
+               </div>
+               <div class="col-lg-7">
+                  <div class="row">
+                     <div class="col-lg-6 col-sm-6">
+                        <div class="work-process-card">
+                           <i class="flaticon-project"></i>
+                           <h3>Discovery</h3>
+                           <p>The importance of the project discovery phase is crucial for the delivery of a quality product and service.</p>
+                           <div class="number">01</div>
+                        </div>
+                     </div>
+                     <div class="col-lg-6 col-sm-6">
+                        <div class="work-process-card">
+                           <i class="flaticon-chip"></i>
+                           <h3>Planning</h3>
+                           <p>The project plan - Initiation, Planning, Execution, Monitoring and Control and Closure.</p>
+                           <div class="number">02</div>
+                        </div>
+                     </div>
+                     <div class="col-lg-6 col-sm-6">
+                        <div class="work-process-card">
+                           <i class="flaticon-effective"></i>
+                           <h3>Execute</h3>
+                           <p>A project report is a document providing detail on the project's overall status or specific aspects of its performance.</p>
+                           <div class="number">03</div>
+                        </div>
+                     </div>
+                     <div class="col-lg-6 col-sm-6">
+                        <div class="work-process-card">
+                           <i class="flaticon-bullhorn"></i>
+                           <h3>Deliver</h3>
+                           <p>A delivery management professional who ensures that teams complete projects in a timely and efficient manner.</p>
+                           <div class="number">04</div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section> -->
+
+      <!-- working process section end  -->
+  
+     <!-- client feed back  -->
+
+     <!-- <section class="clients-area pt-100 pb-70">
+      <div class="container">
+         <div class="section-title text-center">
+            <span class="sp-color2">Our Clients</span>
+            <h2>Our Clients Feedback</h2>
+         </div>
+         <div class="clients-slider owl-carousel owl-theme pt-45">
+            <div class="clients-content">
+               <div class="content">
+                  <img src="assets/images/clients-img/user.png" alt="Images">
+                  <i class='bx bxs-quote-alt-left'></i>
+                  <h3>Karan.M</h3>
+                  <span>App Developer</span>
+               </div>
+               <p>
+                  “I have had many websites since the early 90s. Most were like pulling teeth to get developed. Not so with the Thrive team. 
+                  These guys are true professionals in every aspect. They listened to my needs, offered 
+                  relevant options, were prompt to respond to all of my questions, and most importantly, they never BS’d me about anything. ”
+               </p>
+            </div>
+            <div class="clients-content">
+               <div class="content">
+                  <img src="assets/images/clients-img/user.png" alt="Images">
+                  <i class='bx bxs-quote-alt-left'></i>
+                  <h3>Kavitha.S</h3>
+                  <span>Graphic Designer</span>
+               </div>
+               <p>
+                  “Very professional team with a very creative mindset. The way they walk us through the video production process 
+                  is I have never seen before, from free consultation to giving us an idea on how to creatively produce a content 
+                  that can fit our needs, and to lastly execute it in perfection.  ”
+               </p>
+            </div>
+            <div class="clients-content">
+               <div class="content">
+                  <img src="assets/images/clients-img/user.png" alt="Images">
+                  <i class='bx bxs-quote-alt-left'></i>
+                  <h3>Hariharan.P</h3>
+                  <span>Web Developer</span>
+               </div>
+               <p>
+                  “We have been really impressed with the dedication and commitment of your team, 
+                  especially the developer who went all the way out to make sure all issues were fixed and
+                   the application can be completed and launch on time. ”
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class="client-circle">
+         <div class="client-circle-1">
+            <div class="circle"></div>
+         </div>
+         <div class="client-circle-2">
+            <div class="circle"></div>
+         </div>
+         <div class="client-circle-3">
+            <div class="circle"></div>
+         </div>
+         <div class="client-circle-4">
+            <div class="circle"></div>
+         </div>
+         <div class="client-circle-5">
+            <div class="circle"></div>
+         </div>
+         <div class="client-circle-6">
+            <div class="circle"></div>
+         </div>
+         <div class="client-circle-7">
+            <div class="circle"></div>
+         </div>
+      </div>
+   </section>    -->
+   
+    <!-- client feed back  -->
+
+      <!-- counter section strat  -->
+      <div class="counter-area pt-100 pb-70">
+         <div class="container">
+            <div class="section-title text-center">
+               <span style="color:#9B7E44;" class="sp-color2">Numbers Are Talking</span>
+               <h2>Let’s Check Our Business Growth and Success</h2>
+               <p>We understand what your project means to you and how important it is to see your ideas moving,
+                  growing an customers and being successful</p>
+            </div>
+            <div class="row pt-45">
+               <div class="col-lg-3 col-6 col-md-3">
+                  <div class="counter-another-content">
+                     <i class="flaticon-web-development"></i>
+                     <h3>4205+</h3>
+                     <span>Delivered Goods</span>
+                  </div>
+               </div>
+               <div class="col-lg-3 col-6 col-md-3">
+                  <div class="counter-another-content">
+                     <i class="flaticon-consulting-1"></i>
+                     <h3>245+</h3>
+                     <span>IT Consulting</span>
+                  </div>
+               </div>
+               <div class="col-lg-3 col-6 col-md-3">
+                  <div class="counter-another-content">
+                     <i class="flaticon-startup"></i>
+                     <h3>3550+</h3>
+                     <span>Fully Launched</span>
+                  </div>
+               </div>
+               <div class="col-lg-3 col-6 col-md-3">
+                  <div class="counter-another-content">
+                     <i class="flaticon-tick"></i>
+                     <h3>6545+</h3>
+                     <span>Project Completed</span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="counter-shape">
+            <div class="shape1">
+               <img src="assets/images/shape/shape1.png" alt="Images">
+            </div>
+            <div class="shape2">
+               <img src="assets/images/shape/shape2.png" alt="Images">
+            </div>
+         </div>
+      </div>
+
+<!-- counter section strat End -->
+     
+      
+      <footer class="footer-area footer-bg">
+         <div class="container">
+            <div class="footer-top pt-100">
+               <div class="row">
+                  <div class="col-lg-4 col-sm-6">
+                     <div class="footer-widget">
+                        <div class="footer-logo">
+                           <a href="index.html">
+                              <h1 style="color: #9B7E44">LA Enterprises</h1>
+                           <!-- <img src="assets/images/logos/footer-logo.png" alt="Images"> -->
+                           </a>
+                        </div>
+                        <p><span>We are a startup with high aspirations to provide out of the box solutions for demand generation for businesses. We want to make the demand generation process as simple as it gets.</span>
+                           
+                        </p>
+                        <div class="top-header-right" style="float: inherit;">
+                           <div class="top-header-social">
+                              <ul>
+                                 <li>
+                                    <a href="https://www.facebook.com/people/Antony-Raj-Lawrence/100090447853200/" target="_blank">
+                                    <i class='bx bxl-facebook'></i>
+                                    </a>
+                                 </li>
+                                 <li>
+                                    <a href="https://www.facebook.com/people/Antony-Raj-Lawrence/100090594490327/" target="_blank">
+                                    <i class='bx bxl-facebook'></i>
+                                    </a>
+                                 </li>
+                               
+                                 <!-- <li>
+                                    <a href="https://twitter.com/ideaux_tech" target="_blank">
+                                    <i class='bx bxl-twitter'></i>
+                                    </a>
+                                 </li> -->
+                                 <!-- <li>
+                                    <a href="https://wa.me/8122507363" target="_blank">
+                                       <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                 </li> -->
+                                 <!-- <li>
+                                    <a href="https://www.instagram.com/ideaux_technologies/" target="_blank">
+                                    <i class='bx bxl-instagram'></i>
+                                    </a>
+                                 </li> -->
+                              </ul>
+                           </div>
+                        </div>
+                        <!-- <div class="footer-call-content">
+                           <h3>Talk to Our Support</h3>
+                           <span><a href="tel:+1002-123-4567">+1 002-123-4567</a></span>
+                           <i class='bx bx-headphone'></i>
+                        </div> -->
+                     </div>
+                  </div>
+                  <div class="col-lg-2 col-sm-6">
+                     <!-- <div class="footer-widget pl-2">
+                        <h3>Services <br>
+                           <img src="assets/images/logos/border-shape-2.png" alt=""></h3>
+                           <ul class="footer-list">
+                              <li>
+                                 <a href="index.html" target="_blank">
+                                 <i class='bx bx-chevron-right'></i>
+                                 Home
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="index.html" target="_blank">
+                                 <i class='bx bx-chevron-right'></i>
+                                 About Us
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="index.html" target="_blank">
+                                 <i class='bx bx-chevron-right'></i>
+                                 Services
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="index.html" target="_blank">
+                                 <i class='bx bx-chevron-right'></i>
+                                 Career
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="index.html" target="_blank">
+                                 <i class='bx bx-chevron-right'></i>
+                                 Blog
+                                 </a>
+                              </li>
+                              <li>
+                                 <a href="index.html" target="_blank">
+                                 <i class='bx bx-chevron-right'></i>
+                                 Contact Us
+                                 </a>
+                              </li>
+                           </ul>
+                     </div> -->
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                     <div class="footer-widget pl-5">
+                        <h3 class="footer-title">Get In Touch <br>
+                        <img src="assets/images/logos/border-shape-2.png" alt=""></h3>
+                        <ul class="footer-blog">
+                           <li style="padding-left:0px;">
+                              <div class="content" style="display: flex;justify-content: initial">
+                              <span><i class='bx bx-phone-call foot-ico' style="color:#9B7E44;"></i></span>&nbsp;&nbsp;&nbsp;
+                              <span>
+                              <h3>Phone Number</h3>
+                              <a href="tel:+91 8122507363" style="color:#9B7E44;">+91 8122507363</a>
+                              <!-- <a href="tel:+91 9629536388">+91 9629536388</a> -->
+                              </span>
+                              </div>
+                              </li>
+                              <li style="padding-left:0px;">
+                                 <div class="content" style="display: flex;justify-content: initial">
+                                    <span><i class='bx bxs-map foot-ico' style="color:#9B7E44;"></i></span>&nbsp;&nbsp;&nbsp;
+                                 <span><h3>Address</h3>
+                                    <span style="color:#9B7E44;">302, 18B4/1 Punnai Nager,<br>
+                                       Holy Cross College Road,<br>
+                                       Nagercoil - 629004</span>
+                                 </span>
+                                 </div>
+                              </li>
+                              <li style="padding-left:0px;">
+                                 <div class="content"  style="display: flex;justify-content: initial">
+                                    <span><i class='bx bx-message foot-ico' style="color:#9B7E44;"></i></span>&nbsp;&nbsp;&nbsp;
+                                    <span><h3>E - Mail</h3>
+                                    <a style="color:#9B7E44;" href="mailto:antonyrajlawrence83@gmail.com">antonyrajlawrence83@gmail.com</a>
+                                    <a style="color:#9B7E44;" href="mailto:laenterprisestech@gmail.com">laenterprisestech@gmail.com</a>
+                                 </span>
+                              </div>
+                              </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!-- <div class="col-lg-3 col-sm-6">
+                     <div class="footer-widget">
+                        <h3 class="footer-title">Location <br>
+                           <img src="assets/images/logos/border-shape-2.png" alt=""></h3>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4182335496166!2d77.4160029!3d8.1605488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b04f16fa31f283d%3A0x7833ae492b83b382!2sIdeaux%20Technologies!5e0!3m2!1sen!2sin!4v1671528160597!5m2!1sen!2sin" 
+                        width="300" height="250" style="box-shadow: rgba(255, 255, 255, 0.932) 0px 8px 24px;" allowfullscreen="" 
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     </div>
+                  </div>
+               </div>
+            </div> -->
+            <div class="copy-right-area">
+               <div class="copy-right-text">
+                  <p>
+                     Copyright © <script>document.write(new Date().getFullYear())</script> . All Rights Reserved by
+                     <a href="https://laenterprises.in/" target="_blank" style="color:#9B7E44;">LA Enterprises</a>
+                  </p>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <div class="switch-box">
+         <label id="switch" class="switch">
+         <input type="checkbox" onchange="toggleTheme()" id="slider">
+         <span class="slider round"></span>
+         </label>
+      </div>
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/js/owl.carousel.min.js"></script>
+      <script src="assets/js/jquery.magnific-popup.min.js"></script>
+      <script src="assets/js/jquery.nice-select.min.js"></script>
+      <script src="assets/js/wow.min.js"></script>
+      <script src="assets/js/meanmenu.js"></script>
+      <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+      <script src="assets/js/form-validator.min.js"></script>
+      <script src="assets/js/contact-form-script.js"></script>
+      <script src="assets/js/custom.js"></script>
+   </body>
+   <!-- Mirrored from templates.hibootstrap.com/techex/default/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 16 Nov 2022 09:52:06 GMT -->
+</html>
